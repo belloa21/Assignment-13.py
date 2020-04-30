@@ -142,9 +142,30 @@ while menu != 3:
                 INSERT INTO
                 customer (cust_id, first_name, last_name, street_address, city, state, zip)
                 VALUES
-                (),
-                ('Alex', 'A', 21);
+                ('input', 'input', 'input', 'input', 'input', 'input', 'input');
                 """
+
+            if menu2 == 2:
+                print("\n\nLet's change Elizabeth McGovern's last name to Smith and print all Smith's")
+                update_customer_name = """
+                UPDATE
+                customer
+                SET
+                last_name = 'Smith'
+                WHERE
+                last_name = 'McGovern'
+                """
+
+            if menu2 == 3:
+                select_customer = "SELECT * from customer"
+                customer = execute_read_query(connection, select_customer)
+
+                for customer in customer:
+                    print(customer)
+
+
+            if menu2 == 4:
+
 
 
     if menu == 2:
