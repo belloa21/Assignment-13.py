@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS book (
 # String holds the query to add data to the table
 create_customer = """
 INSERT INTO
-  person (cust_id, first_name, last_name, street_address, city, state, zip_code)
+  customer (cust_id, first_name, last_name, street_address, city, state, zip_code)
 VALUES
   (1, 'James', 'Smith', '25 Mappleton Dr', 'Utica', 'NY', 13502),
   (2, 'Leila', 'Jones', '32 Stone Rd', Yorkville', 'NY', 13502),
@@ -95,12 +95,25 @@ VALUES
   (5, 'Elizabeth', 'McGovern', '21 Funk Rd', 'NY', 13824);
 """
 
-# Execute the four queries to create the tables of the database
-print("\nRun the query to create the person table:")
-execute_query(connection, create_customer_table)
-print("\nRun the query to add people to the person table:")
-execute_query(connection, create_customer)
+create_book = """
+INSERT INTO 
+ book (book_id, title, author, isbn, edition, price, publisher)
+VALUES
+  (1, 'Gundam', 'Tony', '15', '2', '5.99', 'Withers'),
+  (2, 'Sight's of a Dryer', 'Davis', '46', '3', '10.25', 'Everette'),
+  (3, 'Fitness', 'Kim', '120', '1', '12.50', 'Naples');
+"""
 
+
+# Execute the four queries to create the tables of the database
+print("\nRun the query to create the customer table:")
+execute_query(connection, create_customer_table)
+print("\nRun the query to add customers to the customer table:")
+execute_query(connection, create_customer)
+print("\nRun the query to create the book table:")
+execute_query(connection, create_book_table)
+print("\nRun the query to add books to the book table:")
+execute_query(connection, create_book)
 #--------------------------------------------------#
 
 menu = 0
@@ -124,6 +137,16 @@ while menu != 3:
             print("5. Return to the main menu.")
             menu2 = int(input(">"))
 
+            if menu2 == 1:
+                add_customer = """
+                INSERT INTO
+                customer (cust_id, first_name, last_name, street_address, city, state, zip)
+                VALUES
+                (),
+                ('Alex', 'A', 21);
+                """
+
+
     if menu == 2:
         while menu3 != 5:
             print("This is the menu for the books table, what would you like to do?")
@@ -133,4 +156,3 @@ while menu != 3:
             print("4. Delete a book.")
             print("5. Return to the main menu")
             menu3 = int(input(">"))
-
