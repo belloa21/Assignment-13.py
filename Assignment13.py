@@ -177,3 +177,31 @@ while menu != 3:
             print("4. Delete a book.")
             print("5. Return to the main menu")
             menu3 = int(input(">"))
+
+            if menu3 == 1:
+                add_book = """"
+                INSERT INTO
+                book (book_id, title, author, isbn, edition, price, publisher)
+                VALUES
+                ('input', 'input', 'input', 'input', 'input', 'input', 'input');
+                """
+
+            if menu3 == 2:
+                print("\n\nLet's change Gundam's title to something less weird")
+                update_book_name = """
+                UPDATE
+                book
+                SET
+                title = 'History of Mecha'
+                WHERE
+                title = 'gundam'
+                """
+
+            if menu3 == 3:
+                select_book = "SELECT * from book"
+                book = execute_read_query(connection, select_book)
+
+                for book in book:
+                    print(book)
+
+            if menu3 == 4:
